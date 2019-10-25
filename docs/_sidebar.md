@@ -1,3 +1,4 @@
+# TypeScript
 * 基础
 	* [1、介绍](/base/chapter1)
 	* [2、安装TypeScript](/base/chapter2)
