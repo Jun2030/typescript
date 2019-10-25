@@ -3,7 +3,7 @@
  * @Author: Zi_Jun
  * @Email: zijun2030@gmail.com
  * @Date: 2019-10-23 17:18:56
- * @LastEditTime: 2019-10-25 14:58:34
+ * @LastEditTime: 2019-10-25 15:04:53
  * @LastEditors: Do not edit
  * @Note: Do not edit
  -->
@@ -50,14 +50,12 @@
         auto2top: true, // 切换页面后是否自动跳转到页面顶部
         logo: "/_media/icon.svg", // 在侧边栏中出现的网站图标
         name: "TypeScript", // 文档标题，会显示在侧边栏顶部
-        nameLink: "/", // 点击文档标题后跳转的链接地址
+        // nameLink: "/", // 点击文档标题后跳转的链接地址
         autoHeader: false, // 根据 _sidebar.md 的内容自动为每个页面增加标题
         noEmoji: true, // 禁用 emoji 解析
         mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
         formatUpdated: "{MM}/{DD} {HH}:{mm}", // 通过 {docsify-updated} 变量显示文档更新日期
-        formatUpdated: function(time) {
-          return time;
-        }
+        basePath: "/docs/" // 文档加载的根路径
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>

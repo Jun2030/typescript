@@ -1,6 +1,6 @@
 ![logo](_media/icon.svg)
 
-# zijunwork <small>-typescript</small>
+# zijunwork <small>-TypeScript</small>
 
 > A learning document about typescript.
 
