@@ -2,7 +2,7 @@
 
 需要有node环境，通过npm安装：
 
-```Shell
+```powershell
 npm install typescript -g
 ```
 
