@@ -30,7 +30,7 @@ console.log(sayHello(user));
 使用`tsc demo.ts`,生成一个同名的demo.js文件：
 
 ```javascript
-// demo.ts
+// demo.js
 function sayHello(person) {
     return "Hello, " + person;
 }

@@ -3,12 +3,10 @@
  * @Author: Zi_Jun
  * @Email: zijun2030@gmail.com
  * @Date: 2019-10-28 11:41:13
- * @LastEditTime: 2019-10-28 11:43:58
+ * @LastEditTime: 2019-10-28 16:53:46
  * @LastEditors: Do not edit
  * @Note: Do not edit
  */
-function sayHello(person) {
-    return "Hello, " + person;
+function error(msg) {
+    throw new Error(msg);
 }
-var user = "Tom";
-console.log(sayHello(user));

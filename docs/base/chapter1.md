@@ -18,3 +18,5 @@ TypeScript是JavaScript的一个超集，主要提供了类型系统和对ES6的
 
 **总结**：TypeScript增加了代码的可读性和可维护性
 
+**学习视频地址**：https://pan.baidu.com/s/17dfqnomRSBO99xiIUo_BUg 提取码：h099
+
