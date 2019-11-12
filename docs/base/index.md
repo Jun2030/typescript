@@ -62,6 +62,8 @@ var user = "Tom";
 console.log(sayHello(user));
 ```
 
+
+
 ### 基础类型
 
 + 字符串-string
@@ -180,6 +182,10 @@ let l = Symbol();
 let m: Date = new Date();
 ```
 
+
+
+### Let、Const区别
+
 TypeScript和JavaScript类型，其var、let、const的区别基本一致，以下主要讲解ES6中他们的区别
 
 **var**:
@@ -260,6 +266,10 @@ console.log(window.a); // => undefined
 console.log(this.a); // => undefined
 ```
 
+
+
+###  数组
+
 **数组有两种定义方式**：
 
 1. 类型 +方括号（type[]）: 这种方式定义的数组项中不允许出现其他的类型
@@ -278,6 +288,10 @@ console.log(this.a); // => undefined
 
 
 数组类型表示已知元素数量和类型的集合，各元素的类型必须相同。但是很多情况并非如此，比如需要集合中有多种类型的元素，TypeScript中称之为元组Tuple。
+
+
+
+### 元组(tuple)
 
 **定义元组**：
 
@@ -299,6 +313,10 @@ let m = tuple[2];
 console.log(m); // => false
 tuple[3] = "hello"; // !error TypeScript2.7+不能越界访问
 ```
+
+
+
+### 枚举-enum
 
 枚举类型用于取值被限定在一定范围内的场景，如一周只有7天，一年只有4季等。
 
@@ -411,6 +429,10 @@ declare enum Directions {
 
 > 注意：同时使用`declare`和`const`也是可以的，编译结果同==常量枚举一致==。
 
+
+
+### 函数-Function
+
 函数是JavaScript应用程序的基础。
 
 和JavaScript一样，TypeScript函数可以创建有名字的函数和匿名函数。
@@ -420,7 +442,7 @@ declare enum Directions {
 1. 函数声明式
 2. 函数表达式
 
-**函数声明：**
+#### 函数声明：
 
 ```typescript
 // demo.ts
@@ -438,7 +460,7 @@ console.log(newStudent); // => 我是子俊，今年22岁
 1. TS中指定了参数的类型，指定了返回值的类型（返回值类型可以省略，因为TS会根据返回语句自动推断返回值类型）
 2. 参数不可多不可少，只能刚刚好，且和顺序有关
 
-**函数表达式：**
+#### 函数表达式：
 
 ```typescript
 // demo.ts
@@ -490,7 +512,7 @@ console.log(newStudent); // => 我是子俊,今年22岁
    let newStudent = student("子俊", 22);
    ```
 
-**接口中函数的定义：**
+#### 接口中函数的定义：
 
 ```typescript
 // demo.ts
@@ -506,7 +528,7 @@ let newStudent = student1("小明", 18);
 console.log(newStudent); // => 他是小明,年龄为18
 ```
 
-**可选参数：**
+#### 可选参数：
 
 ```typescript
 // demo.ts
@@ -524,7 +546,7 @@ console.log(student1); // => 我是小明,16岁
 console.log(student2); // => 我是小红,20岁，性别女
 ```
 
-**默认参数：**
+#### 默认参数：
 
 ```typescript
 // demo.ts
@@ -542,7 +564,7 @@ console.log(student1); // => 我是小明,16岁,性别男
 console.log(student2); // => 我是小红,20岁,性别女
 ```
 
-**剩余参数：**
+#### 剩余参数：
 
 在JavaScript中，可以使用arguments来访问所有传入的参数，在TypeScript中，可以把所有参数搜集到一个变量。
 
@@ -562,7 +584,7 @@ console.log(student1); // => 我是小明,16岁
 console.log(student2); // => 我是小红,20岁
 ```
 
-**函数重载：**
+#### 函数重载：
 
 重载是为同一个函数提供多个类型提供多个函数类型定义，允许函数对传入不同的参数返回不同的结果分别做类型检查，比如实现一个数字或字符串的反转函数：
 
