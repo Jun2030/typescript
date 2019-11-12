@@ -1,4 +1,4 @@
-**简介**
+### 简介
 
 TypeScript是JavaScript的一个超集，主要提供了类型系统和对ES6的支持，由Microsoft开发。
 
@@ -22,7 +22,7 @@ TypeScript是JavaScript的一个超集，主要提供了类型系统和对ES6的
 
 
 
-**安装**：
+### 安装
 
 需要有node环境，通过npm安装：
 
@@ -62,7 +62,7 @@ var user = "Tom";
 console.log(sayHello(user));
 ```
 
-**基础类型**：
+### 基础类型
 
 + 字符串-string
 + 数字-number
