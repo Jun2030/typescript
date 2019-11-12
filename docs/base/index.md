@@ -1,4 +1,4 @@
-### 简介
+### TypeScript
 
 TypeScript是JavaScript的一个超集，主要提供了类型系统和对ES6的支持，由Microsoft开发。
 
@@ -442,7 +442,7 @@ declare enum Directions {
 1. 函数声明式
 2. 函数表达式
 
-#### 函数声明：
+**函数声明：**
 
 ```typescript
 // demo.ts
@@ -460,7 +460,7 @@ console.log(newStudent); // => 我是子俊，今年22岁
 1. TS中指定了参数的类型，指定了返回值的类型（返回值类型可以省略，因为TS会根据返回语句自动推断返回值类型）
 2. 参数不可多不可少，只能刚刚好，且和顺序有关
 
-#### 函数表达式：
+**函数表达式：**
 
 ```typescript
 // demo.ts
@@ -512,7 +512,7 @@ console.log(newStudent); // => 我是子俊,今年22岁
    let newStudent = student("子俊", 22);
    ```
 
-#### 接口中函数的定义：
+**接口中函数的定义：**
 
 ```typescript
 // demo.ts
@@ -528,7 +528,7 @@ let newStudent = student1("小明", 18);
 console.log(newStudent); // => 他是小明,年龄为18
 ```
 
-#### 可选参数：
+**可选参数：**
 
 ```typescript
 // demo.ts
@@ -546,7 +546,7 @@ console.log(student1); // => 我是小明,16岁
 console.log(student2); // => 我是小红,20岁，性别女
 ```
 
-#### 默认参数：
+**默认参数：**
 
 ```typescript
 // demo.ts
@@ -564,7 +564,7 @@ console.log(student1); // => 我是小明,16岁,性别男
 console.log(student2); // => 我是小红,20岁,性别女
 ```
 
-#### 剩余参数：
+**剩余参数：**
 
 在JavaScript中，可以使用arguments来访问所有传入的参数，在TypeScript中，可以把所有参数搜集到一个变量。
 
@@ -584,7 +584,7 @@ console.log(student1); // => 我是小明,16岁
 console.log(student2); // => 我是小红,20岁
 ```
 
-#### 函数重载：
+**函数重载：**
 
 重载是为同一个函数提供多个类型提供多个函数类型定义，允许函数对传入不同的参数返回不同的结果分别做类型检查，比如实现一个数字或字符串的反转函数：
 
