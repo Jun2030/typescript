@@ -1,4 +1,4 @@
-### TypeScript
+### 介绍
 
 TypeScript是JavaScript的一个超集，主要提供了类型系统和对ES6的支持，由Microsoft开发。
 

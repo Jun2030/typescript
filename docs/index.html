@@ -3,7 +3,7 @@
  * @Author: Zi_Jun
  * @Email: zijun2030@gmail.com
  * @Date: 2019-10-23 17:18:56
- * @LastEditTime: 2019-11-12 17:42:59
+ * @LastEditTime: 2019-11-13 15:29:08
  * @LastEditors: Do not edit
  * @Note: Do not edit
  -->
@@ -35,8 +35,6 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        name: "",
-        repo: "",
         loadSidebar: true, // 加载自定义侧边栏
         maxLevel: 4, // 配置最大支持渲染的标题层级
         subMaxLevel: 4, // 设置生成目录的最大层级
@@ -51,11 +49,10 @@
         auto2top: true, // 切换页面后是否自动跳转到页面顶部
         logo: "/_media/icon.svg", // 在侧边栏中出现的网站图标
         name: "TypeScript", // 文档标题，会显示在侧边栏顶部
-        // nameLink: "/", // 点击文档标题后跳转的链接地址
+        nameLink: "/base/index", // 点击文档标题后跳转的链接地址
         autoHeader: true, // 根据 _sidebar.md 的内容自动为每个页面增加标题
         noEmoji: true, // 禁用 emoji 解析
-        mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
-        formatUpdated: "{MM}/{DD} {HH}:{mm}" // 通过 {docsify-updated} 变量显示文档更新日期
+        mergeNavbar: true // 小屏设备下合并导航栏到侧边栏
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
