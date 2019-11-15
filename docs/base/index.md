@@ -612,3 +612,262 @@ function reverse(text: number | string): number | string {
 
 TypeScript与JavaScript的处理流程相似，它会查找重载列表，从第一个重载定义开始匹配，如果匹配的话就使用这个定义，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面。
 
+
+
+### 类
+
+**相关概念**
+
++ 类（class）: 定义了一件事物的抽象特性，包含它的属性和方法
++ 对象（Object）: 类的实例，通过`new`生成
++ 面向对象（OPP）的三大特性： 封装、继承、多态
++ 封装（Encapsulation）：将对数据的操作细节隐藏起来，只暴露对外的接口。外界调用端不需要（也不可能）知道细节，就能通过对外提供的接口来访问该对象，同时也保证了外界无法任意更改对象内部的数据
++ 继承（Inheritance）：子类继承父类，子类除了拥有父类的所有特性外，还有一些更具体的特性
++ 多态（Polymorphism）：由继承而产生了相关的不同的类，对同一个方法可以有不同的响应。比如`Cat`和`Dog`都继承自`Animal`，但是分别实现了自己的`eat`方法，程序会自动判断出来应该如何执行`eat`
++ 存取器（getter&setter）: 用以改变属性的读取和赋值行为
++ 修饰符（Modifiers）：修饰符是一些关键字，用于限定成员或类型的性质。比如`publick`表示公有属性或方法
++ 抽象类（Abstract Class）：抽象类是供其他类继承的基类，抽象类不允许被实例化。抽象类中的抽象方法必须在子类中被实现
++ 接口(interfaces)：不同类之间公有的属性或方法，可以抽象成一个接口。接口可以被类实现（implements）。一个类只能继承自另一类，但是可以实现多个接口
+
+**类的定义：**
+
+使用`class`定义类，使用`constructor`定义构造函数。
+
+通过`new`关键字生成新实例的时候，会自动调用构造函数。
+
+```typescript
+// demo.ts
+// 定义类
+class Animal {
+  // 定义属性
+  name: string;
+  // 构造函数，属性赋值
+  constructor(name) {
+    this.name = name;
+  }
+  // 定义方法
+  sayHello() {
+    return `我的名字是${this.name}`;
+  }
+}
+
+let cat = new Animal("小明");
+console.log(cat.name); // => 小明
+console.log(cat.sayHello()); // => 我的名字是小明
+```
+
+**类的继承：**
+
+使用`extends`关键字实现继承，子类中使用`super`关键字来调用父类的构造函数和方法
+
+```typescript
+// demo.ts
+// 定义类
+class Animal {
+  // 定义属性
+  name: string;
+  // 构造函数，属性赋值
+  constructor(name) {
+    this.name = name;
+  }
+  // 定义方法
+  sayHello() {
+    return `我的名字是${this.name}`;
+  }
+}
+
+// 继承类
+class Cat extends Animal {
+  color: string;
+  constructor(name, color) {
+    super(name); // 调用父类Animal的constructor(name);
+    this.color = color;
+  }
+  sayCatHello() {
+    // 调用父类的 sayHello()
+    return `${super.sayHello()},我是一只${this.color}的猫`;
+  }
+}
+
+let cat1 = new Cat("小明", "红色");
+console.log(cat1.name); // => 小明
+console.log(cat1.color); // => 红色
+console.log(cat1.sayHello()); // => 我的名字是小明
+console.log(cat1.sayCatHello()); // => 我的名字是小明,我是一只红色的猫
+```
+
+**存取器：**
+
+使用`getter`和`setter`可以改变属性的赋值和读取行为
+
+```typescript
+// demo.ts
+// 定义类
+class Animal {
+  // 定义属性
+  name: string;
+  constructor(name) {
+    this.name = name;
+  }
+  // get
+  get userName(): string {
+    return this.name;
+  }
+  // set
+  set userName(newName: string) {
+    this.name = `我是${newName}`;
+  }
+}
+
+let animal = new Animal("小红");
+console.log(animal.name); // => 小红
+animal.userName = "小白";
+console.log(animal.userName); // => 我是小白
+console.log(animal.name); // => 我是小白
+```
+
+> 如果出现了`错误:(17, 7) TS1056: Accessors are only available when targeting ECMAScript 5 and higher.`：则需要在tsconfig.json中配置：
+>
+> ```json
+> // tsconfig.json
+> {
+> "compilerOptions": {
+>  "target": "es5"
+> },
+> "include": ["*.ts"]
+> }
+> ```
+> 如果运行还报错，可使用`tsc -t`查看当前使用es的版本，可以使用运行
+>
+> ```shell
+> tsc --target es2016 demo.ts
+> ```
+
+**实例属性和方法：**
+
+ES6中实例的属性只能通过构造函数中的`this.xxx`来定义：
+
+```typescript
+// demo.js
+class Animal {
+  constructor() {
+    this.name = "小红";
+  }
+  eat() {}
+}
+
+let cat = new Animal();
+console.log(cat.name); // => 小红
+```
+
+ES7提案中可以直接在类里面定义：
+
+```typescript
+// demo.ts
+// 定义类
+class Animal {
+  name = "小白";
+  eat() {}
+}
+
+let cat = new Animal();
+console.log(cat.name); // => 小白
+```
+
+**静态属性和方法：**
+
+`static`定义一个静态属性或方法。静态属性和方法不需要实例化，而是直接通过类来调用。
+
+```typescript
+// demo.ts
+// 定义类
+class Animal {
+  // 静态属性
+  static num: number = 100;
+  // 静态方法
+  static isAnimal(name: string) {
+    return `我是${name}`;
+  }
+}
+// 类的静态属性和方法都不需要实例化,直接通过类调用
+console.log(Animal.num); // => 100
+console.log(Animal.isAnimal("小明")); // => 我是小明
+```
+
+**访问修饰符：**
+
++ **public** 公有属性和方法，可以在任何地方被访问到，默认所有的属性和方法都是`public`的
++ **private** 私有属性或方法，不能再声明它的类的外部访问，也不可以在子类中访问
++ **protected** 受保护的属性和方法，它和`private`类型，区别是它可以在子类中方法
+
+```typescript
+// demo.ts
+// 定义类
+class Person {
+  // 公有属性
+  public name: string;
+  // 私有属性
+  private idCard: number;
+  // 受保护属性
+  protected phone: number;
+  // 构造方法
+  constructor(name: string, idCard: number, phone: number) {
+    this.name = name;
+    this.idCard = idCard;
+    this.phone = phone;
+  }
+}
+
+let jack = new Person("Jack", 10000, 123456);
+console.log(jack.name); // => Jack
+// console.log(jack.idCard); // !! 属性“idCard”为私有属性，只能在类“Person”中访问。
+// console.log(jack.phone); // !! 属性“phone”受保护，只能在类“Person”及其子类中访问。
+
+class Teacher extends Person {
+  childPhone: number;
+  constructor(name: string, idCard: number, phone: number) {
+    super(name, idCard, phone);
+    this.childPhone = phone;
+    console.log(this.name); // => Tom
+    // console.log(this.idCard); // !! 属性“idCard”为私有属性，只能在类“Person”中访问。
+    console.log(this.phone); // => 234567
+  }
+}
+
+let tom = new Teacher("Tom", 20000, 234567);
+console.log(tom.name); // => Tom
+// console.log(tom.idCard); // !! 属性“idCard”为私有属性，只能在类“Person”中访问。
+// console.log(tom.phone); // !! 属性“phone”受保护，只能在类“Person”及其子类中访问。
+console.log(tom.childPhone); // => 234567
+```
+
+**多态：**
+
+同一个父类的多个子类，可以有不同结果的同名方法
+
+```typescript
+// demo.ts
+class Person {
+  public eat() {
+    console.log("eat");
+  }
+}
+
+class A extends Person {
+  public eat() {
+    console.log("A eat");
+  }
+}
+
+class B extends Person {
+  public eat() {
+    console.log("B eat");
+  }
+}
+
+let a = new A();
+a.eat(); // => A eat
+let b = new B();
+b.eat(); // => B eat
+```
+
