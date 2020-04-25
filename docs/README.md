@@ -1,10 +1,8 @@
-## TypeScript
-
 ![](./_images/readme_pic.jpg)
 
 #### 更新日志：
 
-**v3.1.0 (2020-04-25)**
+**v1.0.0 (2020-04-25)**
 1. `A` 新增 TypeScript基础笔记
 
 
