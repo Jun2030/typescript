@@ -1,21 +1,8 @@
-<!--
- * @Project: Do not edit
- * @Author: Zi_Jun
- * @Email: zijun2030@gmail.com
- * @Date: 2019-10-24 20:15:46
- * @LastEditTime: 2019-11-12 17:58:17
- * @LastEditors: Do not edit
- * @Note: Do not edit
- -->
-
 ![logo](_media/icon.svg)
 
-# zijunwork <small>-TypeScript</small>
+# TypeScript<small>v1.0.0</small>
 
-> A learning document about typescript.
+- Author: Zi_Jun
 
-- [Learning base on TypeScript Official documentation](https://www.tslang.cn/docs/home.html)
-- [Learning base on TypeScript Video tutorial](https://juejin.im/post/5c8b2f2d5188257e814e870c)
-
-[GitHub](https://github.com/zijunwork/typescript/)
-[开始](/base/index)
+[GitHub](https://github.com/zijunwork/soft/)
+[开始](/introduction)

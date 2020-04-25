@@ -1,12 +1,3 @@
-<!--
- * @Project: Do not edit
- * @Author: Zi_Jun
- * @Email: zijun2030@gmail.com
- * @Date: 2019-10-23 17:18:56
- * @LastEditTime: 2019-11-13 15:29:08
- * @LastEditors: Do not edit
- * @Note: Do not edit
- -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +9,10 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
-    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"
+    />
 
     <style>
       .app-name .app-name-link img {
@@ -32,35 +25,48 @@
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">Loading ...</div>
     <script>
       window.$docsify = {
+        search: {
+          maxAge: 86400000,
+          paths: "auto",
+          placeholder: "搜索",
+          noData: "无数据",
+          depth: 4,
+          hideOtherSidebarContent: false,
+        },
+        pagination: {
+          previousText: "上一章节",
+          nextText: "下一章节",
+        },
+        themeColor: "#4CAF50",
+        themeable: {
+          readyTransition: true, // default
+          responsiveTables: true, // default
+        },
         loadSidebar: true, // 加载自定义侧边栏
         maxLevel: 4, // 配置最大支持渲染的标题层级
         subMaxLevel: 4, // 设置生成目录的最大层级
         coverpage: true, // 启用封面页
-        search: {
-          paths: "auto",
-          placeholder: "搜索",
-          noData: "找不到结果",
-          deep: 6
-        },
         repo: "https://github.com/zijunwork/typescript/", // 配置仓库地址
         auto2top: true, // 切换页面后是否自动跳转到页面顶部
         logo: "/_media/icon.svg", // 在侧边栏中出现的网站图标
         name: "TypeScript", // 文档标题，会显示在侧边栏顶部
-        nameLink: "/base/index", // 点击文档标题后跳转的链接地址
+        nameLink: "#/", // 点击文档标题后跳转的链接地址
         autoHeader: true, // 根据 _sidebar.md 的内容自动为每个页面增加标题
         noEmoji: true, // 禁用 emoji 解析
-        mergeNavbar: true // 小屏设备下合并导航栏到侧边栏
+        formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}",
+        mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
       };
     </script>
-    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-    <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
-    <script src="//unpkg.com/docsify-copy-code"></script>
-    <script src="//unpkg.com/prismjs/components/prism-typescript.js"></script>
-    <script src="//unpkg.com/prismjs/components/prism-scss.js"></script>
-    <script src="//unpkg.com/prismjs/components/prism-powershell.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   </body>
 </html>
