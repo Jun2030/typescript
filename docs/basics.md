@@ -16,7 +16,7 @@
 
 这里主要阐述的是原始数据类型在 `TypeScript` 中的应用。
 
-#### 布尔值
+##### 布尔值
 
 ```typescript
 let isDone: boolean = false;
@@ -24,7 +24,7 @@ let isDone: boolean = false;
 
 !> 在 `TypeScript` 中，`boolean`、`string`、`number` 是 `JavaScript` 中的基本类型，而 `Boolean`、`String`、`Number` 是 `JavaScript` 中的构造函数。所以， `let isDone : boolean = new Boolean(1)` 是错误的，因为 `new Boolean(1)` 创造的是一个对象。
 
-#### 数值
+##### 数值
 
 ```typescript
 let num: number = 1;
@@ -32,7 +32,7 @@ let num: number = 1;
 
 在 `Typescript` 中，同样支持 ES6+ 中的二进制和八进制表示法。
 
-#### 字符串
+##### 字符串
 
 ```typescript
 let str: string = "Devin";
@@ -40,7 +40,7 @@ let str: string = "Devin";
 
 建议使用 ES6+ 中的字符串模板（`${xxx}`）来表示字符串的嵌入表达式。
 
-#### 空值
+##### 空值
 
 `JavaScript` 中没有空值（`void`）的概念，但是在 `TypeScript` 中，空值（`void`） 用来表示没有任何返回值的函数。
 
@@ -50,7 +50,7 @@ function sayhello(): void {
 }
 ```
 
-#### Null 和 Undefined
+##### Null 和 Undefined
 
 ```typescript
 let u: undefined = undefined;
@@ -174,7 +174,7 @@ interface NumberArr {
 let numArr3: NumberArr = [1, 2];
 ```
 
-#### 类数组
+##### 类数组
 
 类数组不是数组类型，比如 `arguments`, 类数组不能用普通的数组方式来描述，而应该用接口：
 
@@ -187,7 +187,7 @@ function sum() {
 }
 ```
 
-#### any 在数组中应用
+##### any 在数组中应用
 
 一个比较常见的做法是，用 `any` 表示数组中允许出现任意类型：
 
@@ -199,7 +199,7 @@ let list: any[] = [1, 'b', {c: 3}];
 
 ### 07、函数的类型
 
-#### 函数声明
+##### 函数声明
 
 + 输入约束： 函数的参数，需指定类型
 + 输出约束： 函数的返回值，需指定类型
@@ -210,7 +210,7 @@ function sum(x: number, y: number): number {
 }
 ```
 
-#### 函数表达式
+##### 函数表达式
 
 + 表达式约束： 函数变量，需指定参数类型和返回值类型
 + 输入约束：函数的参数，需指定类型
@@ -224,7 +224,7 @@ let sum: (x: number, y: number) => number = (x: number, y: number): number => {
 
 !> `TypeScript` 中的 `=>` 用来表示函数的定义，左边表示输入类型，需要用括号括起来，右边表示输出类型。ES6+ 中的 `=>` 用来表示箭头函数。注意区分。
 
-#### 接口定义函数形状
+##### 接口定义函数形状
 
 ```typescript
 interface Sum {
@@ -238,7 +238,7 @@ sum = (x: number, y: number): number => {
 
 !> 接口定义函数形状与函数表达式定义函数形状类似，但有不同，注意 `:` 和 `=>` 的区别。
 
-#### 可选参数
+##### 可选参数
 
 + 与对象的接口定义类似，用 `?` 来表示参数可选。
 + 可选参数必须在必需参数后面
@@ -255,7 +255,7 @@ let sum: (x: number, y?: number) => number = (x: number, y?: number): number => 
 }
 ```
 
-#### 默认参数
+##### 默认参数
 
 + `TypeScript` 会将添加了默认值的参数识别为可选参数
 + 此时可选参数可以在必需参数之前或之后，不受约束
@@ -269,7 +269,7 @@ console.log(sum(undefined, 2)); // => 3
 console.log(sum(2, 3)); // => 5
 ```
 
-#### 剩余参数
+##### 剩余参数
 
 ES6+ 中， 用 `...rest` 的方式获取函数中的剩余参数（`rest`参数），事实上，`rest` 是一个数组，所以，需要用数组的类型来定义它。
 
@@ -287,7 +287,7 @@ console.log(sum(2, 3, 4)); // => 7
 
 !> 自己实验证明，es5中的 `arguments` 不能实现 `TypeScript` 的剩余参数写法。
 
-#### 重载
+##### 重载
 
 重载运行一个函数接受不同数量或者不同类型的参数时，作出不同的处理。e.g. 输入数值，输出数值；输入字符串，输出字符串。
 
@@ -314,12 +314,12 @@ console.log(reverse('hello')); // => "olleh"
 
 类型断言可以用来手动指定一个值的类型。
 
-#### 语法
+##### 语法
 
 + `值 as 类型` (推荐使用)
 + `<类型>值`
 
-#### 用途
+##### 用途
 
 + 将一个联合类型断言为其中的一个类型。解决在联合类型中，只能访问所有类型中共有的属性和方法这一劣性。
 
@@ -384,17 +384,17 @@ console.log(reverse('hello')); // => "olleh"
   tom.run();
   ```
 
-#### 类型断言的限制
+##### 类型断言的限制
 
  要使得 `A` 能够被断言为 `B`,只需要 `A` 兼容 `B` 或 `B` 兼容 `A` 即可。
 
-#### 双重断言
+##### 双重断言
 
 双重断言可以打破类型断言的限制，将任何一个类型断言为任何另一个类型。
 
 !>如果使用双重断言，十有八九是错误的。所以，除非迫不得已，千万别用双重断言。
 
-#### 类型断言 VS 类型转换
+##### 类型断言 VS 类型转换
 
 + 类型断言只会影响 `TypeScript` 编译时的类型，类型断言语句在编译结果中会被删除
 + 类型断言不是类型转换，它不会真正影响到变量的类型
@@ -424,7 +424,7 @@ function toBoolean(x: any): boolean {
 console.log(toBoolean(1)); // => true
 ```
 
-#### 类型断言 VS 类型声明
+##### 类型断言 VS 类型声明
 
 + 类型声明比类型断言更加严格
 + 为了增加代码的质量，应该优先使用类型声明，比类型断言的 `as` 更加优雅
@@ -445,7 +445,7 @@ let tom: Cat = animal; // !error Property 'run' is missing in type 'Animal' but 
 let tom = animal async Cat;
 ```
 
-#### 类型断言 VS 泛型
+##### 类型断言 VS 泛型
 
 ```typescript
 interface getCacheData<T>(key: string): T {
@@ -478,7 +478,7 @@ tom.run();
 + `declare global` 扩展全局变量
 + `declare module` 扩展模块
 
-#### 声明语句
+##### 声明语句
 
 声明语句就是我们在使用第三库的时候，来规范它的类型，比如，`jQuery`:
 
@@ -488,7 +488,7 @@ declare const jQuery: (selector: string) => any;
 jQuery('#foo');
 ```
 
-#### 全局变量式声明文件
+##### 全局变量式声明文件
 
 声明文件就是把声明语句放到一个单独的文件中。声明文件必须以 `.d.ts` 为后缀。比如，`jQuery.d.ts`:
 
@@ -502,7 +502,7 @@ decalre const jQuery: (selector: string) => any;
 jQuery('#foo');
 ```
 
-#### 第三方声明文件
+##### 第三方声明文件
 
 有些第三方的声明文件不需要我们自己定义，npm 已经帮我们定义好了，所以我们可以直接下载使用。`@types` 用于统一管理第三方库的声明文件。
 
