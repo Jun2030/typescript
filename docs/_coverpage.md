@@ -1,6 +1,6 @@
 ![logo](_media/icon.svg)
 
-# TypeScript<small>v1.0.0</small>
+# TypeScript<small>v1.1.0</small>
 
 - Author: Zi_Jun
 
