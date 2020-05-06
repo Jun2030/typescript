@@ -1,4 +1,4 @@
-### 01、什么是TypeScript
+### 什么是TypeScript
 
 `TypeScript` 是 `JavaScript` 的一个超集。主要提供了类型系统和对ES6+的支持。由 Microsoft 开发。
 
@@ -20,7 +20,7 @@
 
 
 
-### 02、TypeScript安装
+### TypeScript安装
 
  需要有 `node` 环境，通过 `npm` 安装，之后可以在任何地方执行 `tsc` 命令：
 
